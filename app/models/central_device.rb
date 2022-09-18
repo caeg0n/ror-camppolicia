@@ -1,0 +1,2 @@
+class CentralDevice < ApplicationRecord
+end

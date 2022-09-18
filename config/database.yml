@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  database: rn_botaopanico_development
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: rn_botaopanico_test
+  pool: 5
+  timeout: 5000
+
+production:
+  database: rn_botaopanico_production
+  username: rn_botaopanico
+  password: <%= ENV['RN_BOTAOPANICO_DATABASE_PASSWORD'] %>
+  pool: 5
+  timeout: 5000
