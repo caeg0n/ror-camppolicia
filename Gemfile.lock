@@ -72,6 +72,10 @@ GEM
     crass (1.0.6)
     debug_inspector (1.1.0)
     erubi (1.11.0)
+    ethon (0.15.0)
+      ffi (>= 1.15.0)
+    exponent-server-sdk (0.1.0)
+      typhoeus
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -150,6 +154,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.2.1)
     thread_safe (0.3.6)
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
     websocket-driver (0.7.5)
@@ -166,6 +172,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.4.2)
   byebug
+  exponent-server-sdk
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry-rails
