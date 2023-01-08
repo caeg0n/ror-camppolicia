@@ -31,27 +31,31 @@ class NotificationsController < ApplicationController
     end
   end
 
-  def send_emergency
-    client = Exponent::Push::Client.new
-    messages = [{
-      to: "ExponentPushToken[xxxxxxxxxxxxxxxxxxxxxx]",
-      sound: "default",
-      body: "Hello world!"
-    }, {
-      to: "ExponentPushToken[yyyyyyyyyyyyyyyyyyyyyy]",
-      badge: 1,
-      body: "You've got mail"
-    }]
+  def send_emergency_message
+    valida_device_id = false
+    device_id = send_emergency_params[:device_id]
+    valida_device_id = true if not device_id.nil? and not device_id == ""
+    if valida_device_id then
+      NotificationService.new().send_notification
+    end
   end
 
   private
+
+    # def send_emergency_message
+    #   citizen_device_id =
+    #   destiny_central_devices = NotificationTokens.select(:token).where(device_class:1).pluck(:token).compact
+      
+    #   send_message({organization:organization_name,to:admins,type:'organization_updated_token'}) if action_name == 'update_token'
+    #   send_message({to:admins,type:'app_activity'}) if action_name == 'register'
+    # end
 
     def update_token_params
       params.require(:notification).permit(:device_id,:token,:device_class)
     end
     
     def send_emergency_params
-      params.permit(:citizen_device_id,:central_device_id)
+      params.require(:notification).permit(:device_id)
     end
 
 end
