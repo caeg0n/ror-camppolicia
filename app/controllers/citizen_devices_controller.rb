@@ -2,6 +2,7 @@ class CitizenDevicesController < ApplicationController
   #before_action :set_citizen_device, only: [:show, :update, :destroy]
 
   def is_registered?
+    # binding.pry
     a = is_registered_params 
     b = CitizenDevice.where(device_id:a["citizen_device"]).present?
     render json: { :is_registered => b.to_json }
